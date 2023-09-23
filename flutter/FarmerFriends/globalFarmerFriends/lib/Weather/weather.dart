@@ -8,6 +8,8 @@ class weather extends StatelessWidget {
   WeatherModel? weatherModel;
   List<Widget>? Hourly_cast;
   List<dynamic>? hourly_temp;
+  List<dynamic>? hourly_date;
+  List<Widget>? hourly_cast_date;
 
   @override
   Widget build(BuildContext context) {
@@ -52,19 +54,37 @@ class weather extends StatelessWidget {
                       weatherModel = await WeatherApiClient().request();
                       print(weatherModel?.currentWeather);
                       hourly_temp = weatherModel?.hourly["temperature_2m"];
+                      hourly_date = weatherModel?.hourly["time"];
                       Hourly_cast = hourly_temp
                           ?.map((e) => Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Text("$e"),
                               ))
                           .toList();
+                      hourly_cast_date = hourly_date
+                          ?.map((e) => Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text("$e"),
+                              ))
+                          .toList();
+                      setState(() {});
                     },
                     child: Text("Get Data")),
                 Container(
                     color: Colors.blue[900],
-                    child: Column(
-                      children:
-                          Hourly_cast == null ? [Text("Empty")] : Hourly_cast!,
+                    child: Row(
+                      children: [
+                        Column(
+                          children: hourly_cast_date == null
+                              ? [Text("Empty")]
+                              : hourly_cast_date!,
+                        ),
+                        Column(
+                          children: Hourly_cast == null
+                              ? [Text("Empty")]
+                              : Hourly_cast!,
+                        ),
+                      ],
                     ))
               ],
             ),
@@ -72,3 +92,5 @@ class weather extends StatelessWidget {
         ));
   }
 }
+
+void setState(Null Function() param0) {}
