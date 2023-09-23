@@ -67,7 +67,6 @@ class weather extends StatelessWidget {
                                 child: Text("$e"),
                               ))
                           .toList();
-                      setState(() {});
                     },
                     child: Text("Get Data")),
                 Container(
@@ -92,5 +91,3 @@ class weather extends StatelessWidget {
         ));
   }
 }
-
-void setState(Null Function() param0) {}
