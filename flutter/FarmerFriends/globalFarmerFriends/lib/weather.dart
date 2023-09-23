@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:blood/Weather/weather1.dart';
-import 'package:blood/Weather/weather2.dart';
+import 'package:blood/weather1.dart';
+import 'package:blood/weather2.dart';
 import 'package:flutter/material.dart';
 
 class weather extends StatelessWidget {
@@ -41,7 +41,7 @@ class weather extends StatelessWidget {
                   height: 20.0,
                 ),
                 Text(
-                  "${weatherModel?.currentWeather["temperature"] != null ? weatherModel?.currentWeather["temperature"] : 0}C",
+                  "${weatherModel?.currentWeather["temperature"] != null}`C",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 32,
@@ -50,7 +50,7 @@ class weather extends StatelessWidget {
                 ),
                 ElevatedButton(
                     onPressed: () async {
-                      print("call btn");
+                      debugPrint("call btn");
                       weatherModel = await WeatherApiClient().request();
                       print(weatherModel?.currentWeather);
                       hourly_temp = weatherModel?.hourly["temperature_2m"];

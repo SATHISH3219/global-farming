@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:blood/Weather/weather.dart';
+import 'package:blood/weather.dart';
 import 'package:dio/dio.dart';
 import 'weather2.dart';
 
