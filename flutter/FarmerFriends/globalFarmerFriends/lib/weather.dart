@@ -41,7 +41,7 @@ class weather extends StatelessWidget {
                   height: 20.0,
                 ),
                 Text(
-                  "${weatherModel?.currentWeather["temperature"] != null}`C",
+                  "${weatherModel?.currentWeather["temperature"] != null ? weatherModel?.currentWeather["temperature"] : 0}`C",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 32,
