@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class WeatherModel {
   final currentWeather;
   final hourly;
-  WeatherModel({@required this.currentWeather, @required this.hourly});
+  WeatherModel({required this.currentWeather, required this.hourly});
 
   factory WeatherModel.fromJson(Map<String, dynamic> data) {
     final currentweather = data["current_weather"] as Map<String, dynamic>;
@@ -20,11 +20,11 @@ class CurrentWeather {
   final int winddirection;
   final int isDay;
   CurrentWeather(
-      @required this.temperature,
-      @required this.windspeed,
-      @required this.weathercode,
-      @required this.winddirection,
-      @required this.isDay);
+      {required this.temperature,
+      required this.windspeed,
+      required this.weathercode,
+      required this.winddirection,
+      required this.isDay});
   factory CurrentWeather.fromJson(Map<String, dynamic> data) {
     final temperature = data["temperature"] as double;
     final windspeed = data["windspeed"] as double;
@@ -32,7 +32,11 @@ class CurrentWeather {
     final winddirection = data["winddirection"] as int;
     final isDay = data["isDay"] as int;
     return CurrentWeather(
-        temperature, windspeed, weathercode, winddirection, isDay);
+        temperature: temperature,
+        windspeed: windspeed,
+        weathercode: weathercode,
+        winddirection: winddirection,
+        isDay: isDay);
   }
 }
 
