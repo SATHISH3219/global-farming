@@ -1,5 +1,5 @@
-import 'package:blood/Home.dart';
 import 'package:blood/constant.dart';
+import 'package:blood/main.dart';
 import 'package:blood/signupscreen.dart';
 import 'package:flutter/material.dart';
 
@@ -69,7 +69,7 @@ class LoginScreen extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => homescreen()));
+                    MaterialPageRoute(builder: (context) => MyHomePage()));
               },
               child: Text("Login"),
               style: ElevatedButton.styleFrom(
